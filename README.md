@@ -1,0 +1,2 @@
+# pneumonia
+kaggle_competition
