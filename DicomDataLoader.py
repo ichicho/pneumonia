@@ -7,7 +7,7 @@ def read_dicom(path_dicom):
 
     ds = pydicom.dcmread(path_dicom)
     img = ds.pixel_array
-    return img
+    return torch.from_numpy(img)
 
 class DicomDataset(Dataset):
 
