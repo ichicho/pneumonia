@@ -1,7 +1,6 @@
 import pandas as pd
 
 def get_labels(label_path):
-
     df = pd.read_csv(label_path)
     ary = df.values
 
