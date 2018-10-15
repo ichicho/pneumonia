@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 
-from DataLoader import createDataLoader
+from DicomDataLoader import createDataLoader
 
 path_dicoms = './Data/train_dicoms'
 dataloader = createDataLoader(path_dicoms, batch_size=2)
@@ -15,3 +15,4 @@ for sample in dataloader:
     plt.imshow(img[1])
     plt.show()
     print()
+    break
