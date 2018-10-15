@@ -1,8 +1,7 @@
 import pandas as pd
 
-def get_labels():
+def get_labels(label_path):
 
-    label_path = "./Data/stage_1_train_labels.csv"
     df = pd.read_csv(label_path)
     ary = df.values
 
