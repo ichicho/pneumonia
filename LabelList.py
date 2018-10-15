@@ -20,23 +20,19 @@ def LabelList(path_dicoms, path_labels):
             if pid in labellist:
                 t_label = labellist[pid]
                 t_label['n_bbox'] += 1
-                t_label['x-min'].append(int(label[1]))
-                t_label['y-min'].append(int(label[2]))
-                t_label['width'].append(int(label[3]))
-                t_label['height'].append(int(label[4]))
+                t_label['bbox'].append([int(label[1]),
+                                        int(label[2]),
+                                        int(label[3]),
+                                        int(label[4])])
             else:
                 if label[5]:
                     labellist[pid] = {'n_bbox': 1,
-                                      'x-min': [int(label[1])],
-                                      'y-min': [int(label[2])],
-                                      'width': [int(label[3])],
-                                      'height': [int(label[4])]}
+                                      'bbox': [[int(label[1]),
+                                                int(label[2]),
+                                                int(label[3]),
+                                                int(label[4])]]}
                 else:
-                    labellist[pid] = {'n_bbox': 0,
-                                      'x-min': [],
-                                      'y-min': [],
-                                      'width': [],
-                                      'height': []}
+                    labellist[pid] = {'n_bbox': 0, 'bbox': []}
         else:# in case of no dicom file
             pass
 
