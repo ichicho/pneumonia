@@ -7,7 +7,6 @@ def read_dicom(path_dicom):
 
     ds = pydicom.dcmread(path_dicom)
     img = ds.pixel_array
-
     return img
 
 class DicomDataset(Dataset):
@@ -26,7 +25,8 @@ class DicomDataset(Dataset):
         sample = {'pid': pid, 'img': img}
         return sample
 
-def createDataLoader(path_dicoms, batch_size=1, num_workers=0):
+def DicomDataLoader(path_dicoms, batch_size=1, num_workers=0):
+
     dataset = DicomDataset(path_dicoms)
     dataloader = DataLoader(dataset,
                             batch_size=batch_size,
